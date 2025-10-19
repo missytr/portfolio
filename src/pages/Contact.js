@@ -187,7 +187,6 @@ function Contact() {
         <div className="hero-content">
           <div className="hero-text">
             <h1 className="hero-title">
-              <span className="title-icon">💬</span>
               <span className="title-main">Liên hệ với tôi</span>
               <span className="title-sub">Let's Build Something Amazing Together</span>
             </h1>
@@ -196,20 +195,6 @@ function Contact() {
               Tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn!
             </p>
             
-            <div className="hero-stats">
-              <div className="stat-item">
-                <span className="stat-number">24h</span>
-                <span className="stat-label">Phản hồi nhanh</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-number">100%</span>
-                <span className="stat-label">Tỷ lệ trả lời</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-number">3+</span>
-                <span className="stat-label">Ngôn ngữ</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -284,13 +269,6 @@ function Contact() {
 
               {/* About Me Section */}
               <div className="about-preview">
-                <div className="about-photo">
-                  <img src="https://i.pravatar.cc/180?img=12" alt="Trần Khánh Linh" />
-                  <div className="photo-overlay">
-                    <span className="status-indicator">🟢</span>
-                    <span className="status-text">Sẵn sàng làm việc</span>
-                  </div>
-                </div>
                 <div className="about-content">
                   <h3>Trần Khánh Linh</h3>
                   <p className="role">Full-Stack Developer</p>
@@ -380,11 +358,11 @@ function Contact() {
                     onChange={handleInputChange}
                     placeholder="Chia sẻ ý tưởng, dự án hoặc bất kỳ điều gì bạn muốn thảo luận...
 
-Ví dụ:
-- Mô tả chi tiết về dự án
-- Timeline và budget mong muốn  
-- Công nghệ yêu cầu
-- Mục tiêu cần đạt được"
+                      Ví dụ:
+                      - Mô tả chi tiết về dự án
+                      - Timeline và budget mong muốn  
+                      - Công nghệ yêu cầu
+                      - Mục tiêu cần đạt được"
                     rows="8"
                     className={formErrors.message ? 'error' : ''}
                     required

@@ -182,7 +182,6 @@ function Blog() {
         <div className="hero-content">
           <div className="hero-text">
             <h1 className="hero-title">
-              <span className="title-icon">📝</span>
               <span className="title-main">Tech Blog</span>
               <span className="title-sub">Knowledge Sharing & Programming Insights</span>
             </h1>
@@ -195,14 +194,6 @@ function Blog() {
               <div className="stat-item">
                 <span className="stat-number">{stats.totalPosts}</span>
                 <span className="stat-label">Bài viết</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-number">{(stats.totalViews / 1000).toFixed(1)}k</span>
-                <span className="stat-label">Lượt xem</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-number">{stats.avgReadTime}</span>
-                <span className="stat-label">Phút đọc TB</span>
               </div>
               <div className="stat-item">
                 <span className="stat-number">{stats.categories}</span>

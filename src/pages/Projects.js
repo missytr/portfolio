@@ -195,13 +195,6 @@ function Projects() {
     { id: 'ai', name: 'AI/ML', icon: '🤖', count: projects.filter(p => p.category === 'ai').length }
   ];
 
-  const stats = {
-    totalProjects: projects.length,
-    completedProjects: projects.filter(p => p.status === 'completed').length,
-    totalUsers: projects.reduce((sum, p) => sum + parseInt(p.metrics.users.replace(/[^0-9]/g, '')), 0),
-    avgRating: (projects.reduce((sum, p) => sum + parseFloat(p.metrics.rating), 0) / projects.length).toFixed(1)
-  };
-
   const filteredProjects = activeFilter === 'all' 
     ? projects 
     : projects.filter(project => project.category === activeFilter);
@@ -222,7 +215,6 @@ function Projects() {
         <div className="hero-content">
           <div className="hero-text">
             <h1 className="hero-title">
-              <span className="title-icon">🚀</span>
               <span className="title-main">Dự án của tôi</span>
               <span className="title-sub">Creative Solutions & Digital Experiences</span>
             </h1>
@@ -231,20 +223,7 @@ function Projects() {
               Mỗi dự án đều phản ánh đam mê công nghệ và commitment về chất lượng.
             </p>
             
-            <div className="hero-stats">
-              <div className="stat-item">
-                <span className="stat-number">{stats.totalProjects}+</span>
-                <span className="stat-label">Dự án hoàn thành</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-number">{stats.totalUsers.toLocaleString()}+</span>
-                <span className="stat-label">Người dùng</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-number">{stats.avgRating}</span>
-                <span className="stat-label">Rating trung bình</span>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
