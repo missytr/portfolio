@@ -52,28 +52,28 @@ function About() {
 
   const achievements = [
     {
-      icon: "🏆",
-      title: "Học bổng xuất sắc",
-      year: "2023-2024",
-      description: "Top 5% sinh viên xuất sắc ngành CNPM"
+      icon: "📜",
+      title: "Networking Basics",
+      year: "2025",
+      description: "Chứng chỉ hoàn thành khóa học tại Cisco Networking Academy"
     },
     {
-      icon: "💻",
-      title: "Hackathon Winner", 
-      year: "2024",
-      description: "Giải nhất cuộc thi lập trình web HUTECH"
+      icon: "📜",
+      title: "JavaScript Essentials 1", 
+      year: "2025",
+      description: "Chứng chỉ hoàn thành khóa học tại Cisco Networking Academy"
+    },
+    {
+      icon: "📜",
+      title: "UJavaScript Essentials 2",
+      year: "2025", 
+      description: "Chứng chỉ hoàn thành khóa học tại Cisco Networking Academy"
     },
     {
       icon: "📜",
       title: "Frontend Certificate",
       year: "2023",
       description: "F8 - Fullstack JavaScript Certificate"
-    },
-    {
-      icon: "🎯",
-      title: "UI/UX Certificate",
-      year: "2024", 
-      description: "Google UX Design Professional Certificate"
     }
   ];
 
@@ -198,7 +198,7 @@ function About() {
                     vấn đề thực tế.
                   </p>
                   <p>
-                    Với kinh nghiệm <strong>2+ năm phát triển web</strong>, tôi chuyên tập trung vào việc xây dựng 
+                    Với kiên thức được tiếp thu tại nhà trường và một số các khóa học online, tôi chuyên tập trung vào việc xây dựng 
                     giao diện người dùng hiện đại, responsive và tối ưu hóa performance. Tôi yêu thích việc học hỏi 
                     công nghệ mới và luôn sẵn sàng đối mặt với những thử thách mới.
                   </p>
