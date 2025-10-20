@@ -21,7 +21,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -r https://github.com/missytr/portfolio.git",
+    "deploy": "gh-pages -d build --branch=gh-pages --repo=https://github.com/missytr/portfolio.git",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
