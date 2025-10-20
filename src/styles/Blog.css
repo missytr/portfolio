@@ -280,7 +280,7 @@
   min-height: 50vh;
 }
 
-.blog-container {
+.blog-container1 {
   max-width: 1600px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -288,15 +288,17 @@
   box-sizing: border-box;
 }
 
+/* Update blog grid to 3 columns */
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* Change to 3 equal columns */
   gap: 2rem;
   opacity: 1;
   transform: translateY(0);
   transition: all 0.6s ease;
   align-items: start;
   min-height: 200px;
+  width: 100%;
 }
 
 .blog-grid.loaded {
@@ -394,24 +396,40 @@
   opacity: 1;
 }
 
+/* Read More Button */
 .read-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 1rem 1.5rem;
+  padding: 0.8rem 1.5rem;
   background: linear-gradient(135deg, var(--warm-orange), var(--bright-gold));
   color: var(--bg-primary);
-  text-decoration: none;
-  border-radius: 2rem;
+  border: none;
+  border-radius: 12px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  text-decoration: none;
 }
 
 .read-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 25px rgba(255, 215, 0, 0.5);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+  background: linear-gradient(135deg, var(--bright-gold), var(--warm-orange));
+}
+
+.read-btn span {
+  transition: transform 0.3s ease;
+}
+
+.read-btn:hover span {
+  transform: translateX(3px);
+}
+
+/* Đặt trong .card-footer để căn chỉnh */
+.card-footer .read-btn {
+  margin-left: auto;
 }
 
 .btn-icon {
@@ -578,18 +596,8 @@
   }
 }
 
-@media (max-width: 1024px) {
-  .blog-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .hero-stats {
-    gap: 2rem;
-  }
-}
-
 @media (max-width: 768px) {
+
   .blog-container,
   .nav-container,
   .hero-content {

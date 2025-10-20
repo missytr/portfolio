@@ -160,56 +160,6 @@ function CV() {
                 </div>
               </section>
 
-              {/* Projects Section */}
-              <section className="cv-section">
-                <div className="section-header">
-                  <h2 className="section-title">
-                    <span className="title-icon">🛠️</span>
-                    Dự án nổi bật
-                  </h2>
-                </div>
-                
-                <div className="projects-grid">
-                  {projects.map((project, index) => (
-                    <div key={index} className="project-card">
-                      <h3 className="project-name">{project.name}</h3>
-                      <p className="project-tech">{project.tech}</p>
-                      <p className="project-description">{project.description}</p>
-                      
-                      <div className="project-highlights">
-                        {project.highlights.map((highlight, idx) => (
-                          <span key={idx} className="highlight-tag">
-                            {highlight}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              {/* Certifications Section */}
-              <section className="cv-section">
-                <div className="section-header">
-                  <h2 className="section-title">
-                    <span className="title-icon">🏆</span>
-                    Chứng chỉ
-                  </h2>
-                </div>
-                
-                <div className="certifications-grid">
-                  {certifications.map((cert, index) => (
-                    <div key={index} className="cert-card">
-                      <h3 className="cert-name">{cert.name}</h3>
-                      <p className="cert-issuer">{cert.issuer}</p>
-                      <div className="cert-details">
-                        <span className="cert-date">{cert.date}</span>
-                        <span className="cert-id">ID: {cert.credentialId}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </section>
             </div>
           </div>
         ) : (

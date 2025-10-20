@@ -60,10 +60,6 @@ function Java2() {
           </div>
         </div>
         
-        <div className="blog-hero-image">
-          <div className="image-placeholder">☕ Java OOP</div>
-          <div className="image-overlay"></div>
-        </div>
       </div>
 
       {/* Main Content */}

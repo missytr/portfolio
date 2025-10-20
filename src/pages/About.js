@@ -65,7 +65,7 @@ function About() {
     },
     {
       icon: "📜",
-      title: "UJavaScript Essentials 2",
+      title: "JavaScript Essentials 2",
       year: "2025", 
       description: "Chứng chỉ hoàn thành khóa học tại Cisco Networking Academy"
     },

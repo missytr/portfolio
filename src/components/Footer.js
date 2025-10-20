@@ -103,9 +103,10 @@ function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div className="footer-section">
-            <h4 className="section-title">Liên hệ</h4>
-            <div className="contact-info">
+         <div className="footer-section">
+          <h4 className="section-title">Liên hệ</h4>
+          <div className="contact-info">
+            <div>
               <div className="contact-item">
                 <span className="contact-icon">📍</span>
                 <span>Hồ Chí Minh, Việt Nam</span>
@@ -120,6 +121,7 @@ function Footer() {
               </div>
             </div>
           </div>
+        </div>
 
           {/* Social Links */}
           <div className="footer-section">
@@ -149,9 +151,6 @@ function Footer() {
             <span>© {currentYear} Trần Khánh Linh. Made with</span>
             <span className="heart">💛</span>
             <span>and lots of ☕</span>
-          </div>
-          <div className="footer-tech">
-            <span>Built with React.js & Golden Dreams</span>
           </div>
         </div>
 

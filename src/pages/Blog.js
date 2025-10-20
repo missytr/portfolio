@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Blog.css";
+import img1 from "../img/java1.jpg"
 
 function Blog() {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -16,7 +17,7 @@ function Blog() {
       title: "Java Basics",
       desc: "Giới thiệu cú pháp, biến, kiểu dữ liệu, vòng lặp và các kiến thức nền tảng của ngôn ngữ Java.",
       longDesc: "Bài viết chi tiết về các concepts cơ bản trong Java programming, phù hợp cho beginners bắt đầu học lập trình.",
-      img: "/img/java1.jpg",
+      img: img1,
       link: "/blog/java1",
       category: "java",
       readTime: "8 phút",
@@ -32,7 +33,7 @@ function Blog() {
       desc: "Khám phá lập trình hướng đối tượng: Class, Object, Inheritance, Polymorphism trong Java.",
       longDesc: "Deep dive vào Object-Oriented Programming concepts trong Java với examples thực tế và best practices.",
       img: "/img/java1.jpg",
-      link: "/java2",
+      link: "/blog/java2",
       category: "java",
       readTime: "12 phút",
       difficulty: "Trung bình",
@@ -43,11 +44,11 @@ function Blog() {
     },
     {
       id: 3,
-      title: "Exception Handling trong Java",
+      title: "Exception Handling",
       desc: "Tìm hiểu try-catch-finally, throws và cách tạo custom exception để xử lý lỗi hiệu quả.",
       longDesc: "Comprehensive guide về exception handling trong Java với real-world examples và best practices.",
       img: "/img/java1.jpg",
-      link: "/java3",
+      link: "/blog/java3",
       category: "java",
       readTime: "10 phút",
       difficulty: "Trung bình",
@@ -58,11 +59,11 @@ function Blog() {
     },
     {
       id: 4,
-      title: "Java Collections Framework",
+      title: "Java Collections",
       desc: "Giới thiệu List, Set, Map và cách áp dụng Collections Framework vào dự án thực tế.",
       longDesc: "Advanced tutorial về Java Collections với performance comparisons và use case scenarios.",
       img: "/img/java1.jpg",
-      link: "/java4",
+      link: "/blog/java4",
       category: "java",
       readTime: "15 phút",
       difficulty: "Nâng cao",
@@ -77,7 +78,7 @@ function Blog() {
       desc: "Cú pháp cơ bản, biến, hàm, vòng lặp và nguyên tắc lập trình trong JavaScript.",
       longDesc: "Complete beginner's guide to JavaScript covering syntax, functions, loops và modern programming concepts.",
       img: "/img/js.jpg",
-      link: "/js1",
+      link: "/blog/js1",
       category: "javascript",
       readTime: "10 phút",
       difficulty: "Cơ bản",
@@ -92,7 +93,7 @@ function Blog() {
       desc: "Cách truy cập và thay đổi nội dung HTML/CSS bằng JavaScript để tạo trang web tương tác.",
       longDesc: "Practical guide về DOM manipulation với real examples và interactive exercises.",
       img: "/img/js.jpg",
-      link: "/js2",
+      link: "/blog/js2",
       category: "javascript",
       readTime: "12 phút",
       difficulty: "Trung bình",
@@ -107,7 +108,7 @@ function Blog() {
       desc: "Hiểu về callback, Promise, async/await và xử lý bất đồng bộ trong JavaScript hiện đại.",
       longDesc: "Advanced concepts in asynchronous JavaScript programming với real-world applications.",
       img: "/img/js.jpg",
-      link: "/js3",
+      link: "/blog/js3",
       category: "javascript",
       readTime: "14 phút",
       difficulty: "Nâng cao",
@@ -118,11 +119,11 @@ function Blog() {
     },
     {
       id: 8,
-      title: "Modern JavaScript (ES6+)",
+      title: "Modern JavaScript",
       desc: "Arrow function, destructuring, module, spread/rest và các tính năng hiện đại của JavaScript.",
       longDesc: "Comprehensive overview của ES6+ features với practical examples và migration strategies.",
       img: "/img/js.jpg",
-      link: "/js4",
+      link: "/blog/js4",
       category: "javascript",
       readTime: "16 phút",
       difficulty: "Nâng cao",
@@ -133,11 +134,11 @@ function Blog() {
     },
     {
       id: 9,
-      title: "Java vs JavaScript: So sánh chi tiết",
+      title: "Java & JavaScript",
       desc: "So sánh cú pháp, ứng dụng, và định hướng nghề nghiệp giữa Java và JavaScript.",
       longDesc: "Detailed comparison giữa Java và JavaScript để help developers choose the right technology path.",
       img: "/img/java-js.jpg",
-      link: "/compare",
+      link: "/blog/compare",
       category: "comparison",
       readTime: "18 phút",
       difficulty: "Trung bình",
@@ -224,27 +225,22 @@ function Blog() {
       </nav>
 
       {/* Blog Content */}
-      <main className="blog-main">
-        <div className="blog-container">
-          {/* Debug info - sẽ xóa sau */}
-          <div style={{color: 'white', padding: '10px', marginBottom: '20px'}}>
-            Tổng blogs: {blogs.length} | Filter: {activeFilter} | Filtered: {filteredBlogs.length}
+        <main className="blog-main">
+          <div className="blog-container1">
+            <div className={`blog-grid ${isLoaded ? "loaded" : ""}`}>
+              {filteredBlogs.length > 0 ? (
+                filteredBlogs.map((blog, index) => (
+                  <BlogCard key={blog.id} blog={blog} index={index} />
+                ))
+              ) : (
+                <div className="empty-state">
+                  <span className="empty-icon">📖</span>
+                  <h3>Không tìm thấy bài viết</h3>
+                  <p>Không có bài viết nào trong danh mục này.</p>
+                </div>
+              )}
+            </div>
           </div>
-          
-          <div className={`blog-grid ${isLoaded ? 'loaded' : ''}`}>
-            {filteredBlogs.length > 0 ? (
-              filteredBlogs.map((blog, index) => (
-                <BlogCard key={blog.id} blog={blog} index={index} />
-              ))
-            ) : (
-              <div className="empty-state">
-                <span className="empty-icon">📖</span>
-                <h3>Không tìm thấy bài viết</h3>
-                <p>Không có bài viết nào trong danh mục này.</p>
-              </div>
-            )}
-          </div>
-        </div>
       </main>
     </div>
   );

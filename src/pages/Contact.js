@@ -164,13 +164,6 @@ function Contact() {
     'Python', 'Java', 'MongoDB', 'PostgreSQL'
   ];
 
-  const quickFacts = [
-    { label: 'Kinh nghiệm', value: '3+ năm' },
-    { label: 'Dự án hoàn thành', value: '15+' },
-    { label: 'Khách hàng hài lòng', value: '100%' },
-    { label: 'Response time', value: '<24h' }
-  ];
-
   return (
     <div className="contact-page">
       {/* Hero Section */}
@@ -254,18 +247,6 @@ function Contact() {
                 </div>
               </div>
 
-              {/* Quick Facts */}
-              <div className="quick-facts">
-                <h3>Thông tin nhanh</h3>
-                <div className="facts-grid">
-                  {quickFacts.map((fact, index) => (
-                    <div key={index} className="fact-item">
-                      <span className="fact-value">{fact.value}</span>
-                      <span className="fact-label">{fact.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
 
               {/* About Me Section */}
               <div className="about-preview">

@@ -60,10 +60,6 @@ function Java3() {
           </div>
         </div>
         
-        <div className="blog-hero-image">
-          <div className="image-placeholder">☕ Collections</div>
-          <div className="image-overlay"></div>
-        </div>
       </div>
 
       {/* Main Content */}

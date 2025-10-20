@@ -60,10 +60,6 @@ function Js4() {
           </div>
         </div>
         
-        <div className="blog-hero-image">
-          <div className="image-placeholder">🟨 JavaScript</div>
-          <div className="image-overlay"></div>
-        </div>
       </div>
 
       {/* Main Content */}
