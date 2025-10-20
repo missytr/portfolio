@@ -1,6 +1,7 @@
 {
   "name": "portfolio",
   "homepage": "https://missytr.github.io/portfolio",
+  "homepage": "https://missytr.github.io/portfolio",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,7 +22,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build -r https://github.com/missytr/portfolio.git",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
