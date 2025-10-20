@@ -2,6 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Blog.css";
 import img1 from "../img/java1.jpg"
+import img2 from "../img/java2.jpg"
+import img3 from "../img/java3.jpg"
+import img4 from "../img/java4.jpg"
+import img5 from "../img/js1.jpg"
+import img6 from "../img/js2.jpg"
+import img7 from "../img/js3.jpg"
+import img8 from "../img/js4.jpg"
+import img9 from "../img/compare.jpg"
 
 function Blog() {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -32,7 +40,7 @@ function Blog() {
       title: "Java OOP",
       desc: "Khám phá lập trình hướng đối tượng: Class, Object, Inheritance, Polymorphism trong Java.",
       longDesc: "Deep dive vào Object-Oriented Programming concepts trong Java với examples thực tế và best practices.",
-      img: "/img/java1.jpg",
+      img: img2,
       link: "/blog/java2",
       category: "java",
       readTime: "12 phút",
@@ -47,7 +55,7 @@ function Blog() {
       title: "Exception Handling",
       desc: "Tìm hiểu try-catch-finally, throws và cách tạo custom exception để xử lý lỗi hiệu quả.",
       longDesc: "Comprehensive guide về exception handling trong Java với real-world examples và best practices.",
-      img: "/img/java1.jpg",
+      img: img3,
       link: "/blog/java3",
       category: "java",
       readTime: "10 phút",
@@ -62,7 +70,7 @@ function Blog() {
       title: "Java Collections",
       desc: "Giới thiệu List, Set, Map và cách áp dụng Collections Framework vào dự án thực tế.",
       longDesc: "Advanced tutorial về Java Collections với performance comparisons và use case scenarios.",
-      img: "/img/java1.jpg",
+      img: img4,
       link: "/blog/java4",
       category: "java",
       readTime: "15 phút",
@@ -74,10 +82,10 @@ function Blog() {
     },
     {
       id: 5,
-      title: "JavaScript Basics",
+      title: "JavaScript Basic",
       desc: "Cú pháp cơ bản, biến, hàm, vòng lặp và nguyên tắc lập trình trong JavaScript.",
       longDesc: "Complete beginner's guide to JavaScript covering syntax, functions, loops và modern programming concepts.",
-      img: "/img/js.jpg",
+      img: img5,
       link: "/blog/js1",
       category: "javascript",
       readTime: "10 phút",
@@ -92,7 +100,7 @@ function Blog() {
       title: "DOM Manipulation",
       desc: "Cách truy cập và thay đổi nội dung HTML/CSS bằng JavaScript để tạo trang web tương tác.",
       longDesc: "Practical guide về DOM manipulation với real examples và interactive exercises.",
-      img: "/img/js.jpg",
+      img: img6,
       link: "/blog/js2",
       category: "javascript",
       readTime: "12 phút",
@@ -107,7 +115,7 @@ function Blog() {
       title: "Asynchronous JavaScript",
       desc: "Hiểu về callback, Promise, async/await và xử lý bất đồng bộ trong JavaScript hiện đại.",
       longDesc: "Advanced concepts in asynchronous JavaScript programming với real-world applications.",
-      img: "/img/js.jpg",
+      img: img7,
       link: "/blog/js3",
       category: "javascript",
       readTime: "14 phút",
@@ -122,7 +130,7 @@ function Blog() {
       title: "Modern JavaScript",
       desc: "Arrow function, destructuring, module, spread/rest và các tính năng hiện đại của JavaScript.",
       longDesc: "Comprehensive overview của ES6+ features với practical examples và migration strategies.",
-      img: "/img/js.jpg",
+      img: img8,
       link: "/blog/js4",
       category: "javascript",
       readTime: "16 phút",
@@ -137,7 +145,7 @@ function Blog() {
       title: "Java & JavaScript",
       desc: "So sánh cú pháp, ứng dụng, và định hướng nghề nghiệp giữa Java và JavaScript.",
       longDesc: "Detailed comparison giữa Java và JavaScript để help developers choose the right technology path.",
-      img: "/img/java-js.jpg",
+      img: img9,
       link: "/blog/compare",
       category: "comparison",
       readTime: "18 phút",
