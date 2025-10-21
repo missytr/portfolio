@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Projects.css";
-import img1 from "../img/java1.jpg";
+import img_daphongtro from "../img/img_daphongtro.png";
+import img_daskillcoder from "../img/img_daskillcoder.png";
+import img_portfolio from "../img/img_portfolio.png";
 
 function Projects() {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -17,7 +19,7 @@ function Projects() {
       desc: "Xây dựng CV giới thiệu bản thân trực tuyến với React, bao gồm dự án, blog và liên hệ.",
       tech: ["React.js", "CSS", "JavaScript", "HTML"],
       category: "frontend",
-      img: img1,
+      img: img_portfolio,
       status: "completed",
       year: "2025",
       features: [
@@ -31,7 +33,7 @@ function Projects() {
       longDesc: "Ứng dụng web tìm kiếm phòng trọ với advanced filtering, user reviews. Tối ưu hóa trải nghiệm người dùng với responsive design và performance enhancements.",
       tech: ["C#", "Asp.net"],
       category: "fullstack",
-      img: img1,
+      img: img_daphongtro,
       status: "completed",
       year: "2024",
       features: [
@@ -46,7 +48,7 @@ function Projects() {
       longDesc: "Nền tảng học lập trình trực tuyến để cá nhân hóa lộ trình học tập, cung cấp bài tập thực hành và phản hồi tức thì giúp người học nâng cao kỹ năng nhanh chóng.",
       tech: ["React.js", "TypeScript", "Prisma", "PostgreSQL"],
       category: "frontend",
-      img: img1,
+      img: img_daskillcoder,
       status: "in-progress",
       year: "2024",
       features: [
@@ -60,7 +62,7 @@ function Projects() {
       longDesc: "Ứng dụng quản lý sinh viên toàn diện với chức năng CRUD, tìm kiếm nâng cao và phân trang. Giao diện thân thiện, dễ sử dụng giúp quản lý thông tin sinh viên hiệu quả.",
       tech: ["C#", "Asp.net", "SQL Server"],
       category: "fullstack",
-      img: img1,
+      img:"",
       status: "completed",
       year: "2024",
       features: [

@@ -52,7 +52,6 @@ function Header() {
               to={item.path} 
               className={`nav-link ${location.pathname === item.path ? "active" : ""}`}
             >
-              <span className="nav-icon">{item.icon}</span>
               <span className="nav-text">{item.label}</span>
               <div className="nav-glow"></div>
             </Link>

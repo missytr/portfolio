@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Footer.css";
 
 function Footer() {
@@ -47,12 +48,12 @@ function Footer() {
   ];
 
   const quickLinks = [
-    { name: "Trang chủ", path: "/" },
-    { name: "Giới thiệu", path: "/about" },
-    { name: "CV", path: "/cv" },
-    { name: "Dự án", path: "/projects" },
-    { name: "Blog", path: "/blog" },
-    { name: "Liên hệ", path: "/contact" }
+    { path: "/", label: "Trang chủ"},
+    { path: "/about", label: "Giới thiệu"},
+    { path: "/cv", label: "CV"},
+    { path: "/projects", label: "Dự án"},
+    { path: "/blog", label: "Chia sẻ"},
+    { path: "/contact", label: "Liên hệ"}
   ];
 
   const skills = ["React", "Node.js", "JavaScript", "TypeScript", "Python", "MongoDB"];
@@ -90,14 +91,14 @@ function Footer() {
           <div className="footer-section">
             <h4 className="section-title">Điều hướng</h4>
             <nav className="footer-nav">
-              {quickLinks.map((link, index) => (
-                <a 
-                  key={index}
-                  href={link.path}
+              {quickLinks.map((item) => (
+                <Link 
+                  key={item.path}
+                  to={item.path}
                   className="footer-link"
                 >
-                  {link.name}
-                </a>
+                  {item.label}
+                </Link>
               ))}
             </nav>
           </div>
