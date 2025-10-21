@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Home.css";
 
 function HeroSection() {
@@ -72,12 +73,12 @@ function HeroSection() {
             </p>
 
             <div className="hero-actions">
-              <a href="/about" className="btn btn-primary">
+              <Link to="/about" className="btn btn-primary">
                 <span>Khám phá về tôi</span>
                 <svg className="btn-icon" viewBox="0 0 24 24" fill="none">
                   <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2"/>
                 </svg>
-              </a>
+              </Link>
             </div>
 
           </div>
