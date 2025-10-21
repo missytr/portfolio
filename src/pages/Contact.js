@@ -97,16 +97,16 @@ function Contact() {
     {
       icon: '📧',
       title: 'Email',
-      value: 'trankhanh.linh@gmail.com',
-      link: 'mailto:trankhanh.linh@gmail.com',
+      value: 'trankhanhlinh.lt@gmail.com',
+      link: 'mailto:trankhanhlinh.lt@gmail.com',
       description: 'Gửi email cho tôi',
       available: '24/7'
     },
     {
       icon: '📱',
       title: 'Điện thoại',
-      value: '+84 123 456 789',
-      link: 'tel:+84123456789',
+      value: '(+84) 907 253 408',
+      link: 'tel:+84907253408',
       description: 'Gọi điện trực tiếp',
       available: '9:00 - 18:00'
     },
@@ -121,8 +121,8 @@ function Contact() {
     {
       icon: '💬',
       title: 'Zalo/WhatsApp',
-      value: '+84 123 456 789',
-      link: 'https://zalo.me/84123456789',
+      value: '(+84) 907 253 408',
+      link: 'https://zalo.me/84907253408',
       description: 'Chat trực tiếp',
       available: 'Online'
     }
@@ -131,31 +131,15 @@ function Contact() {
   const socialLinks = [
     {
       name: 'GitHub',
-      icon: '💻',
-      url: 'https://github.com/username',
+      url: 'https://github.com/missytr',
       color: '#333',
       description: 'Mã nguồn dự án'
     },
     {
-      name: 'LinkedIn',
-      icon: '💼',
-      url: 'https://linkedin.com/in/username',
-      color: '#0077b5',
-      description: 'Mạng nghề nghiệp'
-    },
-    {
       name: 'Facebook',
-      icon: '📘',
-      url: 'https://facebook.com/username',
+      url: 'https://facebook.com/linhtrankhanh.kh',
       color: '#1877f2',
       description: 'Trang cá nhân'
-    },
-    {
-      name: 'Instagram',
-      icon: '📷',
-      url: 'https://instagram.com/username',
-      color: '#e4405f',
-      description: 'Ảnh & Story'
     }
   ];
 
@@ -237,7 +221,6 @@ function Contact() {
                       rel="noopener noreferrer"
                       title={`${social.name} - ${social.description}`}
                     >
-                      <span className="social-icon">{social.icon}</span>
                       <div className="social-info">
                         <span className="social-name">{social.name}</span>
                         <span className="social-desc">{social.description}</span>

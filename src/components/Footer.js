@@ -32,18 +32,13 @@ function Footer() {
     },
     {
       name: "GitHub",
-      url: "https://github.com/trankhanlinh",
+      url: "https://github.com/missytr",
       description: "Xem mã nguồn dự án"
     },
     {
       name: "Facebook",
-      url: "https://facebook.com/trankhanhlinhdev",
+      url: "https://facebook.com/linhtrankhanh.kh",
       description: "Theo dõi trên Facebook"
-    },
-    {
-      name: "Instagram",
-      url: "https://instagram.com/trankhanhlinhdev",
-      description: "Xem ảnh và story"
     }
   ];
 
@@ -138,7 +133,6 @@ function Footer() {
                   title={social.description}
                   style={{'--social-color': social.color}}
                 >
-                  <span className="social-icon">{social.icon}</span>
                   <span className="social-name">{social.name}</span>
                 </a>
               ))}

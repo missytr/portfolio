@@ -39,7 +39,7 @@ function Header() {
             </div>
             <div className="logo-content">
               <span className="logo-text">Trần Khánh Linh</span>
-              <span className="logo-subtitle">Full-Stack Developer</span>
+              <span className="logo-subtitle">Frontend Developer</span>
             </div>
           </Link>
         </div>

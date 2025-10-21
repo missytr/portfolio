@@ -158,10 +158,10 @@ function Blog() {
   ];
 
   const categories = [
-    { id: 'all', name: 'Tất cả', icon: '📚', count: blogs.length },
-    { id: 'java', name: 'Java', icon: '☕', count: blogs.filter(b => b.category === 'java').length },
-    { id: 'javascript', name: 'JavaScript', icon: '⚡', count: blogs.filter(b => b.category === 'javascript').length },
-    { id: 'comparison', name: 'So sánh', icon: '⚖️', count: blogs.filter(b => b.category === 'comparison').length }
+    { id: 'all', name: 'Tất cả', count: blogs.length },
+    { id: 'java', name: 'Java', count: blogs.filter(b => b.category === 'java').length },
+    { id: 'javascript', name: 'JavaScript', count: blogs.filter(b => b.category === 'javascript').length },
+    { id: 'comparison', name: 'So sánh', count: blogs.filter(b => b.category === 'comparison').length }
   ];
 
   const stats = {
@@ -242,7 +242,6 @@ function Blog() {
                 ))
               ) : (
                 <div className="empty-state">
-                  <span className="empty-icon">📖</span>
                   <h3>Không tìm thấy bài viết</h3>
                   <p>Không có bài viết nào trong danh mục này.</p>
                 </div>
@@ -296,11 +295,6 @@ function BlogCard({ blog, index }) {
       </div>
 
       <div className="card-content">
-        <div className="blog-meta">
-          <span className="read-time">⏱️ {blog.readTime}</span>
-          <span className="views">👀 {blog.views}</span>
-          <span className="publish-date">📅 {new Date(blog.publishedDate).toLocaleDateString('vi-VN')}</span>
-        </div>
         
         <h3 className="blog-title">{blog.title}</h3>
         <p className="blog-description">{blog.desc}</p>
@@ -312,7 +306,6 @@ function BlogCard({ blog, index }) {
         </div>
         
         <div className="card-footer">
-          <span className="author">✍️ {blog.author}</span>
           <Link to={blog.link} className="read-more">
             Đọc tiếp →
           </Link>
