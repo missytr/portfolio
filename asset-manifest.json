@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.08947dd1.css",
+    "main.js": "/portfolio/static/js/main.4edea43f.js",
+    "static/js/453.6264690d.chunk.js": "/portfolio/static/js/453.6264690d.chunk.js",
+    "static/media/img_portfolio.png": "/portfolio/static/media/img_portfolio.550583baf02d6bb73e97.png",
+    "static/media/img_daskillcoder.png": "/portfolio/static/media/img_daskillcoder.233560728f44ca35adb6.png",
+    "static/media/img_daphongtro.png": "/portfolio/static/media/img_daphongtro.f31a4fdc562f8f31695c.png",
+    "static/media/image.jpg": "/portfolio/static/media/image.b560716babb322291a96.jpg",
+    "static/media/javascript-essentials-2.png": "/portfolio/static/media/javascript-essentials-2.967ea47c2060a2e477c0.png",
+    "static/media/networking-basics.png": "/portfolio/static/media/networking-basics.0852ed7b5d1f3e80f069.png",
+    "static/media/javascript-essentials-1.png": "/portfolio/static/media/javascript-essentials-1.88b9e4e2e61740648b2c.png",
+    "index.html": "/portfolio/index.html",
+    "main.08947dd1.css.map": "/portfolio/static/css/main.08947dd1.css.map",
+    "main.4edea43f.js.map": "/portfolio/static/js/main.4edea43f.js.map",
+    "453.6264690d.chunk.js.map": "/portfolio/static/js/453.6264690d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.08947dd1.css",
+    "static/js/main.4edea43f.js"
+  ]
+}
