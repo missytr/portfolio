@@ -43,12 +43,11 @@ function Footer() {
   ];
 
   const quickLinks = [
-    { path: "/", label: "Trang chủ"},
-    { path: "/about", label: "Giới thiệu"},
-    { path: "/cv", label: "CV"},
-    { path: "/projects", label: "Dự án"},
-    { path: "/blog", label: "Chia sẻ"},
-    { path: "/contact", label: "Liên hệ"}
+    { path: "/", label: "Trang chủ" },
+    { path: "/about", label: "Giới thiệu" },
+    { path: "/cv", label: "CV" },
+    { path: "/projects", label: "Dự án" },
+    { path: "/contact", label: "Liên hệ" }
   ];
 
   const skills = ["React", "Node.js", "JavaScript", "TypeScript", "Python", "MongoDB"];
@@ -70,7 +69,7 @@ function Footer() {
               </div>
             </div>
             <p className="footer-description">
-              Passionate about creating amazing web experiences with modern technologies. 
+              Passionate about creating amazing web experiences with modern technologies.
               Always learning, always building.
             </p>
             <div className="footer-skills">
@@ -87,7 +86,7 @@ function Footer() {
             <h4 className="section-title">Điều hướng</h4>
             <nav className="footer-nav">
               {quickLinks.map((item) => (
-                <Link 
+                <Link
                   key={item.path}
                   to={item.path}
                   className="footer-link"
@@ -99,25 +98,25 @@ function Footer() {
           </div>
 
           {/* Contact Info */}
-         <div className="footer-section">
-          <h4 className="section-title">Liên hệ</h4>
-          <div className="contact-info">
-            <div>
-              <div className="contact-item">
-                <span className="contact-icon">📍</span>
-                <span>Hồ Chí Minh, Việt Nam</span>
-              </div>
-              <div className="contact-item">
-                <span className="contact-icon">📧</span>
-                <span>trankhanhlinhdev@gmail.com</span>
-              </div>
-              <div className="contact-item">
-                <span className="contact-icon">📱</span>
-                <span>(+84) 907 253 408</span>
+          <div className="footer-section">
+            <h4 className="section-title">Liên hệ</h4>
+            <div className="contact-info">
+              <div>
+                <div className="contact-item">
+                  <span className="contact-icon">📍</span>
+                  <span>Hồ Chí Minh, Việt Nam</span>
+                </div>
+                <div className="contact-item">
+                  <span className="contact-icon">📧</span>
+                  <span>trankhanhlinhdev@gmail.com</span>
+                </div>
+                <div className="contact-item">
+                  <span className="contact-icon">📱</span>
+                  <span>(+84) 907 253 408</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
           {/* Social Links */}
           <div className="footer-section">
@@ -131,7 +130,7 @@ function Footer() {
                   rel="noopener noreferrer"
                   className="social-link"
                   title={social.description}
-                  style={{'--social-color': social.color}}
+                  style={{ '--social-color': social.color }}
                 >
                   <span className="social-name">{social.name}</span>
                 </a>
