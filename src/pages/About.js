@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/About.css";
-import avatar from "../img/image.png";
+import avatar from "../img/image.jpg";
 import certNetworking from "../img/networking-basics.png";
 import certJS1 from "../img/javascript-essentials-1.png";
 import certJS2 from "../img/javascript-essentials-2.png";

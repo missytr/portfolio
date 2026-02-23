@@ -11,18 +11,17 @@ function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
-    { path: "/", label: "Trang chủ"},
-    { path: "/about", label: "Giới thiệu"},
-    { path: "/cv", label: "CV"},
-    { path: "/projects", label: "Dự án"},
-    { path: "/blog", label: "Chia sẻ"},
-    { path: "/contact", label: "Liên hệ"}
+    { path: "/", label: "Trang chủ" },
+    { path: "/about", label: "Giới thiệu" },
+    { path: "/cv", label: "CV" },
+    { path: "/projects", label: "Dự án" },
+    { path: "/contact", label: "Liên hệ" }
   ];
 
   const toggleMobileMenu = () => {
@@ -47,9 +46,9 @@ function Header() {
         {/* Desktop Navigation */}
         <nav className="nav-menu pro-nav desktop-nav">
           {navItems.map((item) => (
-            <Link 
+            <Link
               key={item.path}
-              to={item.path} 
+              to={item.path}
               className={`nav-link ${location.pathname === item.path ? "active" : ""}`}
             >
               <span className="nav-text">{item.label}</span>
@@ -59,7 +58,7 @@ function Header() {
         </nav>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className={`mobile-menu-btn ${isMobileMenuOpen ? 'active' : ''}`}
           onClick={toggleMobileMenu}
           aria-label="Toggle navigation menu"
@@ -74,9 +73,9 @@ function Header() {
       <nav className={`mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-nav-content">
           {navItems.map((item) => (
-            <Link 
+            <Link
               key={item.path}
-              to={item.path} 
+              to={item.path}
               className={`mobile-nav-link ${location.pathname === item.path ? "active" : ""}`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
@@ -89,7 +88,7 @@ function Header() {
 
       {/* Background overlay for mobile menu */}
       {isMobileMenuOpen && (
-        <div 
+        <div
           className="mobile-overlay"
           onClick={() => setIsMobileMenuOpen(false)}
         />
