@@ -1,109 +1,125 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
+import avatarImg from "../img/image.jpg";
 import "../styles/Home.css";
 
-function HeroSection() {
-  const [displayText, setDisplayText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTyping, setIsTyping] = useState(true);
-  
-  const texts = useMemo(() => [
-    "CREATIVE SOFTWARE ENGINEER",
-    "PASSIONATE DEVELOPER", 
-    "UI/UX DESIGNER",
-    "PROBLEM SOLVER"
-  ], []);
+function Home() {
+  const { t } = useLanguage();
+  const { home } = t;
 
-  useEffect(() => {
-    const currentText = texts[currentIndex];
-    
-    if (isTyping) {
-      if (displayText.length < currentText.length) {
-        const timeout = setTimeout(() => {
-          setDisplayText(currentText.slice(0, displayText.length + 1));
-        }, 100);
-        return () => clearTimeout(timeout);
-      } else {
-        const timeout = setTimeout(() => {
-          setIsTyping(false);
-        }, 2000);
-        return () => clearTimeout(timeout);
-      }
-    } else {
-      if (displayText.length > 0) {
-        const timeout = setTimeout(() => {
-          setDisplayText(displayText.slice(0, -1));
-        }, 50);
-        return () => clearTimeout(timeout);
-      } else {
-        setCurrentIndex((prev) => (prev + 1) % texts.length);
-        setIsTyping(true);
-      }
-    }
-  }, [displayText, currentIndex, isTyping, texts]);
+  const coreSkills = [
+    "ReactJS", "TypeScript", "JavaScript", "Node.js", "SQL Server",
+    "Oracle API Center", "Zalo Mini App", "RESTful API", "HTML5/CSS3", "Git"
+  ];
 
   return (
-    <section className="hero-section modern-hero">
-      {/* Animated Background Elements */}
-      <div className="floating-shapes">
-        <div className="shape shape-1"></div>
-        <div className="shape shape-2"></div>
-        <div className="shape shape-3"></div>
-        <div className="shape shape-4"></div>
-        <div className="shape shape-5"></div>
-      </div>
-
-      <div className="hero-container">
-        <div className="hero-content">
-          {/* Main Content */}
-          <div className="hero-text-section">
-            <h1 className="hero-name">
-              <span className="name-part">TRẦN</span>
-              <span className="name-highlight">KHÁNH LINH</span>
-            </h1>
-            
-            <div className="hero-title">
-              <span className="typing-text">{displayText}</span>
-              <span className="cursor">|</span>
+    <div className="home-container">
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="hero-grid">
+          {/* Left Text */}
+          <div className="hero-intro">
+            <div className="status-badge">
+              <span className="status-dot"></span>
+              <span>{home.statusBadge}</span>
             </div>
-            
-            <p className="hero-description">
-              Tôi tạo ra những trải nghiệm số đẹp mắt và có ý nghĩa. 
-              Kết hợp giữa kỹ thuật và nghệ thuật để mang lại giải pháp sáng tạo.
+
+            <h1 className="hero-heading">
+              {home.name}
+            </h1>
+
+            <p className="hero-subheading">
+              {home.subheading}
             </p>
 
-            <div className="hero-actions">
-              <Link to="/about" className="btn btn-primary">
-                <span>Khám phá về tôi</span>
-                <svg className="btn-icon" viewBox="0 0 24 24" fill="none">
-                  <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2"/>
-                </svg>
+            <p className="hero-bio">
+              {home.bio}
+            </p>
+
+            <div className="hero-cta-group">
+              <Link to="/projects" className="btn-primary">
+                {home.btnProjects}
+              </Link>
+              <Link to="/about" className="btn-outline">
+                {home.btnAbout}
               </Link>
             </div>
 
+            <div className="hero-skills-strip">
+              <span className="skills-strip-label">{home.skillsLabel}</span>
+              <div className="skills-pill-row">
+                {coreSkills.map((skill, index) => (
+                  <span key={index} className="skill-badge-item">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
 
-          {/* Visual Section */}
-          <div className="hero-visual">
-            <div className="profile-container">
-              <div className="profile-ring"></div>
-              <div className="profile-image">
-                <div className="avatar-placeholder">
-                  <span>KL</span>
-                </div>
-              </div>
-              <div className="profile-dots">
-                <div className="dot dot-1"></div>
-                <div className="dot dot-2"></div>
-                <div className="dot dot-3"></div>
+          {/* Right Portrait */}
+          <div className="hero-portrait-col">
+            <div className="portrait-frame">
+              <img src={avatarImg} alt={home.name} className="portrait-image" />
+              <div className="portrait-caption">
+                <span className="caption-name">{home.name}</span>
+                <span className="caption-title">{home.portraitCaption}</span>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-    </section>
+      {/* Metrics Strip */}
+      <section className="metrics-section">
+        <div className="metrics-grid">
+          {home.metrics.map((item, index) => (
+            <div key={index} className="metric-box">
+              <span className="metric-number">{item.value}</span>
+              <span className="metric-title">{item.label}</span>
+              <span className="metric-detail">{item.detail}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Core Capabilities */}
+      <section className="featured-section">
+        <div className="section-header">
+          <div>
+            <span className="section-kicker">{home.capabilitiesKicker}</span>
+            <h2 className="section-title">{home.capabilitiesTitle}</h2>
+            <p className="section-subtitle">{home.capabilitiesSubtitle}</p>
+          </div>
+          <Link to="/projects" className="section-link">
+            {home.capabilitiesLink}
+          </Link>
+        </div>
+
+        <div className="capabilities-grid">
+          {home.capabilities.map((item, index) => (
+            <div key={index} className="capability-card">
+              <div className="capability-top-meta">
+                <span className="capability-step">{item.step}</span>
+                <span className="capability-role">{item.role}</span>
+              </div>
+              <h3 className="capability-title">{item.title}</h3>
+              <p className="capability-desc">{item.desc}</p>
+              <div className="capability-highlights">
+                <span className="highlights-label">{item.highlightsLabel}</span>
+                <ul className="capability-bullets">
+                  {item.highlights.map((h, i) => (
+                    <li key={i}>{h}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 }
 
-export default HeroSection;
+export default Home;

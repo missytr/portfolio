@@ -1,215 +1,103 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
 import "../styles/Projects.css";
-import img_daphongtro from "../img/img_daphongtro.png";
-import img_daskillcoder from "../img/img_daskillcoder.png";
-import img_portfolio from "../img/img_portfolio.png";
 
 function Projects() {
+  const { t } = useLanguage();
+  const { projects: projectsLocale } = t;
   const [activeFilter, setActiveFilter] = useState('all');
-  const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
-
-  const projects = [
-    {
-      id: 1,
-      title: "Portfolio",
-      desc: "Xây dựng CV giới thiệu bản thân trực tuyến với React, bao gồm dự án, blog và liên hệ.",
-      tech: ["React.js", "CSS", "JavaScript", "HTML"],
-      category: "frontend",
-      img: img_portfolio,
-      status: "completed",
-      year: "2025",
-      features: [
-        "Giới thiệu bản thân tôi",
-      ],
-    },
-    {
-      id: 2,
-      title: "Website tìm kiếm phòng trọ",
-      desc: "Hệ thống tìm kiếm phòng trọ với bộ lọc nâng cao, đánh giá người dùng.",
-      longDesc: "Ứng dụng web tìm kiếm phòng trọ với advanced filtering, user reviews. Tối ưu hóa trải nghiệm người dùng với responsive design và performance enhancements.",
-      tech: ["C#", "Asp.net"],
-      category: "fullstack",
-      img: img_daphongtro,
-      status: "completed",
-      year: "2024",
-      features: [
-        "Responsive design",
-        "MVC architecture",
-      ],
-    },
-    {
-      id: 3,
-      title: "Skill Coder",
-      desc: "Giải pháp cho học lập trình trực tuyến.",
-      longDesc: "Nền tảng học lập trình trực tuyến để cá nhân hóa lộ trình học tập, cung cấp bài tập thực hành và phản hồi tức thì giúp người học nâng cao kỹ năng nhanh chóng.",
-      tech: ["React.js", "TypeScript", "Prisma", "PostgreSQL"],
-      category: "frontend",
-      img: img_daskillcoder,
-      status: "in-progress",
-      year: "2024",
-      features: [
-        "Học mà chơi, chơi mà học",
-      ],
-    },
-    {
-      id: 4,
-      title: "Ứng dụng quản lý sinh viên",
-      desc: "Xây dựng ứng dụng quản lý sinh viên với tính năng CRUD, tìm kiếm và phân trang.",
-      longDesc: "Ứng dụng quản lý sinh viên toàn diện với chức năng CRUD, tìm kiếm nâng cao và phân trang. Giao diện thân thiện, dễ sử dụng giúp quản lý thông tin sinh viên hiệu quả.",
-      tech: ["C#", "Asp.net", "SQL Server"],
-      category: "fullstack",
-      img:"",
-      status: "completed",
-      year: "2024",
-      features: [
-        "CRUD operations",
-      ],
-    },
-  ];
+  const projects = projectsLocale.items;
 
   const categories = [
-    { id: 'all', name: 'Tất cả', count: projects.length },
-    { id: 'frontend', name: 'Frontend', count: projects.filter(p => p.category === 'frontend').length },
-    { id: 'fullstack', name: 'Full Stack', count: projects.filter(p => p.category === 'fullstack').length },
-    { id: 'ai', name: 'AI/ML', count: projects.filter(p => p.category === 'ai').length }
+    { id: 'all', name: projectsLocale.categories.all, count: projects.length },
+    { id: 'enterprise', name: projectsLocale.categories.enterprise, count: projects.filter(p => p.categories.includes('enterprise')).length },
+    { id: 'frontend', name: projectsLocale.categories.frontend, count: projects.filter(p => p.categories.includes('frontend')).length },
+    { id: 'mobile', name: projectsLocale.categories.mobile, count: projects.filter(p => p.categories.includes('mobile')).length },
+    { id: 'fullstack', name: projectsLocale.categories.fullstack, count: projects.filter(p => p.categories.includes('fullstack')).length }
   ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+  const filteredProjects = activeFilter === 'all'
+    ? projects
+    : projects.filter(project => project.categories.includes(activeFilter));
 
   return (
-    <div className="projects-page">
-      {/* Hero Section */}
-      <section className="projects-hero">
-        <div className="hero-background">
-          <div className="floating-shapes">
-            <div className="shape shape-1"></div>
-            <div className="shape shape-2"></div>
-            <div className="shape shape-3"></div>
-            <div className="shape shape-4"></div>
-          </div>
-        </div>
-        
-        <div className="hero-content">
-          <div className="hero-text">
-            <h1 className="hero-title">
-              <span className="title-main">Dự án của tôi</span>
-              <span className="title-sub">Creative Solutions & Digital Experiences</span>
-            </h1>
-            <p className="hero-description">
-              Khám phá những dự án mà tôi đã tạo ra - từ ứng dụng web hiện đại đến các giải pháp AI sáng tạo. 
-              Mỗi dự án đều phản ánh đam mê công nghệ và commitment về chất lượng.
-            </p>
-            
-            
-          </div>
+    <div className="projects-container">
+      {/* Header */}
+      <section className="projects-header-section">
+        <span className="section-kicker">{projectsLocale.kicker}</span>
+        <h1 className="projects-main-heading">{projectsLocale.heading}</h1>
+        <p className="projects-lead">
+          {projectsLocale.lead}
+        </p>
+
+        {/* Filter Bar */}
+        <div className="projects-filter-bar">
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              className={`filter-tab ${activeFilter === cat.id ? 'active' : ''}`}
+              onClick={() => setActiveFilter(cat.id)}
+            >
+              <span>{cat.name}</span>
+              <span className="filter-count-badge">{cat.count}</span>
+            </button>
+          ))}
         </div>
       </section>
 
-      {/* Filter Navigation */}
-      <nav className="projects-nav">
-        <div className="nav-container">
-          <div className="filter-tabs">
-            {categories.map(category => (
-              <button
-                key={category.id}
-                className={`filter-tab ${activeFilter === category.id ? 'active' : ''}`}
-                onClick={() => setActiveFilter(category.id)}
-              >
-                <span className="tab-icon">{category.icon}</span>
-                <span className="tab-name">{category.name}</span>
-                <span className="tab-count">{category.count}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
+      {/* Grid */}
+      <section className="projects-grid-body">
+        <div className="projects-cards-list">
+          {filteredProjects.map((p) => (
+            <div key={p.id} className="project-detail-card">
+              <div className="project-top-header">
+                <span className="project-company-name">{p.company}</span>
+                <span className={`project-status-pill ${p.status.toLowerCase().includes('live') ? 'status-live' : 'status-general'}`}>
+                  {p.status}
+                </span>
+              </div>
 
-      {/* Projects Grid */}
-      <main className="projects-main">
-        <div className="projects-container">
-          <div className={`projects-grid ${isLoaded ? 'loaded' : ''}`}>
-            {filteredProjects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
-            ))}
-          </div>
-          
-          {filteredProjects.length === 0 && (
-            <div className="empty-state">
-              <h3>Không tìm thấy dự án</h3>
-              <p>Không có dự án nào trong danh mục này.</p>
+              <h2 className="project-main-title">{p.title}</h2>
+              <div className="project-meta-info">
+                <span className="project-meta-role">{p.role}</span>
+                <span className="project-meta-separator">•</span>
+                <span className="project-meta-year">{p.year}</span>
+              </div>
+
+              <p className="project-description-text">{p.desc}</p>
+
+              <div className="project-highlights-box">
+                <span className="highlights-caption">{projectsLocale.keyFeaturesLabel}</span>
+                <ul className="highlights-unordered-list">
+                  {p.features.map((f, i) => (
+                    <li key={i}>{f}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="project-tags-footer">
+                <div className="project-tech-pills">
+                  {p.tech.map((tItem, i) => (
+                    <span key={i} className="tech-badge-clean">{tItem}</span>
+                  ))}
+                </div>
+
+                {p.link && (
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-demo-anchor"
+                  >
+                    {projectsLocale.viewDemo}
+                  </a>
+                )}
+              </div>
             </div>
-          )}
-        </div>
-      </main>
-    </div>
-  );
-}
-
-function ProjectCard({ project, index }) {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false);
-
-  return (
-    <div 
-      className="project-card"
-      style={{ animationDelay: `${index * 0.1}s` }}
-    >
-      <div className="card-header">
-        <div className="project-image">
-          <img 
-            src={project.img} 
-            alt={project.title}
-            onLoad={() => setImageLoaded(true)}
-            className={imageLoaded ? 'loaded' : ''}
-          />
-        </div>
-      </div>
-
-      <div className="card-content">
-        <div className="project-header">
-          <h3 className="project-title">{project.title}</h3>
-          <span className="project-year">{project.year}</span>
-        </div>
-        
-        <p className="project-description">
-          {isExpanded ? project.longDesc : project.desc}
-        </p>
-        
-        {project.longDesc !== project.desc && (
-          <button 
-            className="expand-btn"
-            onClick={() => setIsExpanded(!isExpanded)}
-          >
-            {isExpanded ? 'Thu gọn' : 'Xem thêm'}
-            <span className={`expand-icon ${isExpanded ? 'expanded' : ''}`}>↓</span>
-          </button>
-        )}
-
-        <div className="project-tech">
-          {project.tech.map((tech, i) => (
-            <span key={i} className="tech-badge">{tech}</span>
           ))}
         </div>
-
-        {isExpanded && (
-          <div className="project-details">
-            <div className="project-features">
-              <h4>Tính năng nổi bật:</h4>
-              <ul>
-                {project.features.map((feature, i) => (
-                  <li key={i}>{feature}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
-      </div>
+      </section>
     </div>
   );
 }

@@ -1,141 +1,214 @@
 import React, { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
 import "../styles/CV.css";
 
 function CV() {
+  const { language, t } = useLanguage();
+  const { cv: cvLocale, about: aboutLocale, projects: projectsLocale } = t;
   const [viewMode, setViewMode] = useState('interactive');
 
-  const skills = {
-    technical: [
-      { name: "JavaScript/ES6+", level: 90 },
-      { name: "React.js/Next.js", level: 85 },
-      { name: "HTML5/CSS3/SCSS", level: 95 },
-      { name: "Tailwind CSS", level: 88 },
-      { name: "Node.js/Express", level: 80 },
-      { name: "Git/GitHub", level: 85 },
-      { name: "MongoDB/MySQL", level: 75 },
-      { name: "UI/UX Design", level: 82 }
-    ],
-    soft: [
-      "Giao tiếp hiệu quả",
-      "Làm việc nhóm",
-      "Giải quyết vấn đề",
-      "Quản lý thời gian",
-      "Tư duy sáng tạo",
-      "Học hỏi nhanh"
-    ]
+  const contacts = {
+    phone: "(+84) 907 253 408",
+    email: "trankhanhlinh.lt@gmail.com",
+    location: aboutLocale.profile.location,
+    portfolio: "https://missytr.github.io/portfolio/",
+    github: "https://github.com/missytr"
   };
 
+  const candidateName = language === 'en' ? "Tran Khanh Linh" : "Trần Khánh Linh";
 
+  // Selected personal projects from projectsLocale
+  const personalProjects = projectsLocale.items.slice(3);
+
+  // Technical skills flat list
+  const technicalSkills = [
+    "ReactJS", "TypeScript", "JavaScript (ES6+)", "HTML5 & CSS3", "Node.js",
+    "SQL Server", "PostgreSQL", "C#", "Java", "Flutter", "Git & GitHub", "RESTful API", "WordPress"
+  ];
 
   return (
-    <div className="cv-page">
-      {/* Header */}
-      <header className="cv-header">
-        <div className="header-content">
-          <div className="header-info">
-            <h1 className="cv-main-title">
-              <span className="title-icon">📄</span>
-              Curriculum Vitae
-            </h1>
-            <p className="cv-subtitle">
-              Hồ sơ năng lực & Kinh nghiệm chuyên môn
-            </p>
-          </div>
-
-          <div className="view-controls">
-            <button
-              className={`view-btn ${viewMode === 'interactive' ? 'active' : ''}`}
-              onClick={() => setViewMode('interactive')}
-            >
-              <span className="btn-icon">✨</span>
-              Interactive
-            </button>
-            <button
-              className={`view-btn ${viewMode === 'pdf' ? 'active' : ''}`}
-              onClick={() => setViewMode('pdf')}
-            >
-              <span className="btn-icon">📑</span>
-              PDF View
-            </button>
-            <a
-              href={process.env.PUBLIC_URL + "/CV.pdf"}
-              download="TranKhanhLinh_CV.pdf"
-              className="download-btn"
-            >
-              <span className="btn-icon">⬇️</span>
-              Tải về
-            </a>
-          </div>
+    <div className="cv-page-container">
+      {/* Header Bar */}
+      <section className="cv-header-bar">
+        <div className="cv-header-titles">
+          <span className="section-kicker">{cvLocale.kicker}</span>
+          <h1 className="cv-heading">{cvLocale.heading}</h1>
+          <p className="cv-lead">{cvLocale.lead}</p>
         </div>
-      </header>
 
-      {/* Content */}
-      <main className="cv-main">
+        <div className="cv-action-controls">
+          <button
+            className={`cv-mode-btn ${viewMode === 'interactive' ? 'active' : ''}`}
+            onClick={() => setViewMode('interactive')}
+          >
+            {cvLocale.modeInteractive}
+          </button>
+          <button
+            className={`cv-mode-btn ${viewMode === 'pdf' ? 'active' : ''}`}
+            onClick={() => setViewMode('pdf')}
+          >
+            {cvLocale.modePdf}
+          </button>
+          <a
+            href={process.env.PUBLIC_URL + "/CV.pdf"}
+            download="TranKhanhLinh_CV.pdf"
+            className="cv-download-btn"
+          >
+            {cvLocale.downloadPdf}
+          </a>
+        </div>
+      </section>
+
+      {/* Main View */}
+      <section className="cv-content-area">
         {viewMode === 'interactive' ? (
-          <div className="cv-interactive">
-            <div className="cv-container">
+          <div className="cv-document-sheet">
+            {/* Header of Resume */}
+            <header className="resume-sheet-header">
+              <div>
+                <h2 className="resume-name">{candidateName}</h2>
+                <div className="resume-title">{aboutLocale.profile.role}</div>
+              </div>
+              <div className="resume-contact-block">
+                <div>Email: {contacts.email}</div>
+                <div>{language === 'en' ? 'Phone:' : 'Điện thoại:'} {contacts.phone}</div>
+                <div>{language === 'en' ? 'Location:' : 'Địa điểm:'} {contacts.location}</div>
+                <div>GitHub: {contacts.github}</div>
+              </div>
+            </header>
 
+            {/* Summary */}
+            <div className="resume-section">
+              <h3 className="resume-section-heading">{cvLocale.sections.summary}</h3>
+              <p className="resume-body-text">{cvLocale.summaryText}</p>
+            </div>
 
-
-              {/* Skills Section */}
-              <section className="cv-section">
-                <div className="section-header">
-                  <h2 className="section-title">
-                    <span className="title-icon">🚀</span>
-                    Kỹ năng
-                  </h2>
+            {/* Education */}
+            <div className="resume-section">
+              <h3 className="resume-section-heading">{cvLocale.sections.education}</h3>
+              <div className="resume-entry">
+                <div className="entry-row">
+                  <strong className="entry-title">{cvLocale.educationDetails.school}</strong>
+                  <span className="entry-time">{cvLocale.educationDetails.period}</span>
                 </div>
+                <div className="entry-sub">
+                  <span>{language === 'en' ? 'Major:' : 'Chuyên ngành:'} {cvLocale.educationDetails.major}</span>
+                  <span>•</span>
+                  <span>{language === 'en' ? 'Cumulative GPA:' : 'Điểm tích lũy GPA:'} <strong>{cvLocale.educationDetails.gpa}</strong></span>
+                </div>
+              </div>
+            </div>
 
-                <div className="skills-grid">
-                  <div className="skills-category">
-                    <h3 className="category-title">Technical Skills</h3>
-                    <div className="technical-skills">
-                      {skills.technical.map((skill, index) => (
-                        <div key={index} className="skill-item">
-                          <div className="skill-info">
-                            <span className="skill-name">{skill.name}</span>
-                            <span className="skill-percent">{skill.level}%</span>
-                          </div>
-                          <div className="skill-bar">
-                            <div
-                              className="skill-fill"
-                              style={{ width: `${skill.level}%` }}
-                            ></div>
-                          </div>
-                        </div>
-                      ))}
+            {/* Experience */}
+            <div className="resume-section">
+              <h3 className="resume-section-heading">{cvLocale.sections.experience}</h3>
+              <div className="resume-entries-stack">
+                {aboutLocale.workExperience.map((exp, idx) => (
+                  <div key={idx} className="resume-entry">
+                    <div className="entry-row">
+                      <strong className="entry-title">{exp.project}</strong>
+                      <span className="entry-time">{exp.period}</span>
                     </div>
+                    <div className="entry-sub">
+                      <span>{exp.company}</span>
+                      <span>—</span>
+                      <span className="entry-role-tag">{exp.role} ({exp.status})</span>
+                    </div>
+                    <ul className="entry-bullet-list">
+                      {exp.highlights.map((task, i) => (
+                        <li key={i}>{task}</li>
+                      ))}
+                    </ul>
                   </div>
+                ))}
+              </div>
+            </div>
 
-                  <div className="skills-category">
-                    <h3 className="category-title">Soft Skills</h3>
-                    <div className="soft-skills">
-                      {skills.soft.map((skill, index) => (
-                        <span key={index} className="soft-skill-tag">
-                          {skill}
-                        </span>
-                      ))}
+            {/* Personal Projects */}
+            <div className="resume-section">
+              <h3 className="resume-section-heading">{cvLocale.sections.projects}</h3>
+              <div className="resume-projects-grid">
+                {personalProjects.map((p, idx) => (
+                  <div key={idx} className="resume-proj-box">
+                    <div className="entry-row">
+                      <strong className="entry-title">{p.title}</strong>
+                      <span className="entry-time">{p.year}</span>
                     </div>
+                    <div className="entry-role-tag">{p.role}</div>
+                    <p className="entry-desc-paragraph">{p.desc}</p>
+                    {p.link && (
+                      <a href={p.link} target="_blank" rel="noopener noreferrer" className="entry-link">
+                        Demo: {p.link} →
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Skills */}
+            <div className="resume-section">
+              <h3 className="resume-section-heading">{cvLocale.sections.skills}</h3>
+              <div className="resume-skills-block">
+                <div>
+                  <span className="skills-group-title">{cvLocale.skillsLabels.technical}</span>
+                  <div className="resume-skill-pills">
+                    {technicalSkills.map((skill, index) => (
+                      <span key={index} className="resume-skill-item">{skill}</span>
+                    ))}
                   </div>
                 </div>
-              </section>
+                <div style={{ marginTop: '1rem' }}>
+                  <span className="skills-group-title">{cvLocale.skillsLabels.soft}</span>
+                  <div className="resume-skill-pills">
+                    {aboutLocale.softSkills.map((skill, index) => (
+                      <span key={index} className="resume-skill-item item-soft">{skill}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
 
+            {/* Certifications */}
+            <div className="resume-section">
+              <h3 className="resume-section-heading">{cvLocale.sections.certifications}</h3>
+              <div className="resume-certs-stack">
+                {aboutLocale.achievements.map((c, idx) => (
+                  <div key={idx} className="cert-row">
+                    <div className="entry-row">
+                      <strong className="entry-title">{c.title}</strong>
+                      <span className="entry-time">{c.period}</span>
+                    </div>
+                    <div className="cert-org">{c.issuer}</div>
+                    <p className="entry-desc-paragraph">{c.desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         ) : (
-          <div className="cv-pdf-view">
-            <div className="pdf-container">
-              <iframe
-                src={process.env.PUBLIC_URL + "/CV.pdf"}
-                width="100%"
-                height="900px"
-                className="pdf-frame"
-                title="CV PDF"
-              ></iframe>
+          <div className="cv-pdf-frame-card">
+            <div className="pdf-mobile-fallback">
+              <p>{cvLocale.mobileFallbackNotice}</p>
+              <a
+                href={process.env.PUBLIC_URL + "/CV.pdf"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-open-pdf"
+              >
+                {cvLocale.openPdfFullscreen}
+              </a>
             </div>
+            <iframe
+              src={process.env.PUBLIC_URL + "/CV.pdf"}
+              width="100%"
+              height="940px"
+              className="pdf-iframe-clean"
+              title="Tran Khanh Linh Resume PDF"
+            ></iframe>
           </div>
         )}
-      </main>
+      </section>
     </div>
   );
 }
